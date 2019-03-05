@@ -5,7 +5,7 @@ import {withRouter} from "react-router-dom";
 
 class Upload extends React.Component {
 
-    state: {video: ""}
+    state = {video: ""}
 
     handleChange(e){
         let video = e.target.value.split('v=')[1] && e.target.value.split('v=')[1].split('&')[0];

@@ -6,7 +6,7 @@ import Spinner from "../components/Spinner";
 
 class Users extends React.Component {
     
-    state: {
+    state = {
         users: [],
         page: 1,
         isLoading: true
