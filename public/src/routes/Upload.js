@@ -7,14 +7,14 @@ class Upload extends React.Component {
 
     state = {video: ""}
 
-    handleChange(e){
+    handleChange = (e) => {
         let video = e.target.value.split('v=')[1] && e.target.value.split('v=')[1].split('&')[0];
         this.setState({video, error: null});
         if(!video || video.length !== 11){
             this.playerError();
         }
     }
-    handleSubmit(e){
+    handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.error){
             return;
@@ -30,7 +30,7 @@ class Upload extends React.Component {
         });
     }
 
-    playerError(){
+    playerError = () => {
         this.setState({error: "Error, check the URL"});
     }
     render() {

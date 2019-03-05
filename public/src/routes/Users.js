@@ -16,20 +16,20 @@ class Users extends React.Component {
       this.fetchData();
     }
 
-    fetchData(){
+    fetchData = () => {
         ajax.get('/users', {page: this.state.page}).then((res)=>{
             this.setState({users: res.data.users, isLoading: false});
          });
     }
 
-    nextPage(){
+    nextPage = () => {
         this.setState({
             page: this.state.page + 1
         });
         this.fetchData();
     }
 
-    prevPage(){
+    prevPage = () => {
         this.setState({
             page: this.state.page - 1
         });
