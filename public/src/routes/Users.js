@@ -40,7 +40,9 @@ class Users extends React.Component {
         return <div>
             {this.state.isLoading ? <Spinner></Spinner> 
             :
-            <UserList users={this.state.users}></UserList>}
+            <UserList users={this.state.users}
+                      isLoggedIn={this.props.location.state.isLoggedIn}
+            ></UserList>}
 
             <Pagination page={this.state.page}
                         nextPage={this.nextPage} 

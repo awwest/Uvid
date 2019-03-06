@@ -9,7 +9,12 @@ function Nav(props){
                 <Link className="nav-link" to="/">Feed</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/users">Users</Link>
+                <Link className="nav-link" to={{ 
+                    pathname: "/users",
+                    state: {
+                        isLoggedIn: props.isLoggedIn
+                    }
+                }}>Users</Link>
             </li>
             
                 { props.isLoggedIn &&
@@ -19,7 +24,13 @@ function Nav(props){
                 </li>
 
                 <li className="nav-item">
-                    <Link className="nav-link" to={"/profile/" + props.userId}>Profile</Link>
+                    <Link className="nav-link" to={{ 
+                        pathname: "/profile/" + props.userId,
+                        state: {
+                            isLoggedIn: props.isLoggedIn,
+                            id: props.userId
+                        }
+                    }}>Profile</Link>
                 </li> 
                 </>}
             

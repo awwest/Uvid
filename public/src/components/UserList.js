@@ -5,7 +5,13 @@ function UserList(props){
     return (
         <>
             {props.users.map((user)=>(
-            <Link className="card text-white bg-primary mb-3 mt-3" key={user.id} to={`/profile/${user.id}`}>
+            <Link className="card text-white bg-primary mb-3 mt-3" key={user.id} to={{ 
+                pathname: "/profile/" + user.id,
+                state: {
+                    isLoggedIn: props.isLoggedIn,
+                    id: user.id
+                }
+            }}>
                 <h2 className="card-header card-title">
                     {user.name}
                 </h2>

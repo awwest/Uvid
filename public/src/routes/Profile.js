@@ -9,12 +9,13 @@ class Profile extends React.Component {
     state = {
         isLoading: true,
         page: 1,
-        id: (this.props.match && this.props.match.params.id) || this.props.id,
+        id: (this.props.match && this.props.match.params.id) || this.props.location.state.id,
         following: [],
         followers: [],
         name: '',
         isCurrentUser: true,
-        posts: []
+        posts: [],
+        isLoggedIn: this.props.location.state.isLoggedIn
     }
 
     componentDidMount(){
@@ -68,7 +69,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div>
-                {!this.state.isCurrentUser && this.props.isLoggedIn && (this.state.isFollowedByCurrentUser ? 
+                {!this.state.isCurrentUser && this.state.isLoggedIn && (this.state.isFollowedByCurrentUser ? 
                     <button className="btn btn-outline-secondary mt-5" type="button" onClick={this.unfollow}>UNFOLLOW</button> :
                     <button className="btn btn-outline-primary mt-5" type="button" onClick={this.follow}>FOLLOW</button>
                 )}
