@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, withRouter } from "react-router-dom";
 import './App.css';
 
 import Feed from "./routes/Feed";
@@ -61,6 +61,7 @@ class App extends Component {
       this.setState({
         isLoggedIn: false
       });
+      this.props.history.push('/');
     });
   }
 
@@ -99,4 +100,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
