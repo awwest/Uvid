@@ -34,8 +34,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'pg', '>= 1.1.4'
+gem 'mysql2'
+# gem 'pg', '>= 1.1.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
