@@ -9,7 +9,7 @@ class Profile extends React.Component {
     state = {
         isLoading: true,
         page: 1,
-        id: this.props.match.params.id,
+        id: (this.props.match && this.props.match.params.id) || this.props.id,
         following: [],
         followers: [],
         name: '',

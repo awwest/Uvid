@@ -89,7 +89,11 @@ class App extends Component {
                     : 
                     <Redirect to="/"></Redirect>)}>
                 </Route>
-                <Route path="/profile/:id" component={Profile}></Route>
+                <Route path="/profile/:id" component={Profile} render={() => (
+                  <Profile id={this.state.userId}
+                           isLoggedIn={this.state.isLoggedIn}>
+                  </Profile>
+                )}></Route>
                 <Route exact path="/users" component={Users}></Route>
             </Switch>
             </div>
