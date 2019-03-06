@@ -22,6 +22,20 @@ class Profile extends React.Component {
         this.fetchData();
     }
 
+    static getDerivedStateFromProps(nextProps, prevState){
+        if(nextProps.location.state.id !== prevState.id){
+            return {id: nextProps.location.state.id};
+        }
+        return null;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.id !== prevState.id){
+            this.setState({isLoading:true});
+            this.fetchData();
+        }
+    }
+
     fetchData = () => {
         ajax.get(`/users/${this.state.id}`, {
             page: this.state.page,
