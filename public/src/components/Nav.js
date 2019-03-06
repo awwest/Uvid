@@ -5,6 +5,8 @@ function Nav(props){
     return <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <ul className="navbar-nav mr-auto">
+            { props.isLoggedIn &&
+            <>
             <li className="nav-item">
                 <Link className="nav-link" to="/">Feed</Link>
             </li>
@@ -16,25 +18,20 @@ function Nav(props){
                     }
                 }}>Users</Link>
             </li>
-            
-                { props.isLoggedIn &&
-                <>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/upload">New Post</Link>
-                </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/upload">New Post</Link>
+            </li>
 
-                <li className="nav-item">
-                    <Link className="nav-link" to={{ 
-                        pathname: "/profile/" + props.userId,
-                        state: {
-                            isLoggedIn: props.isLoggedIn,
-                            id: props.userId
-                        }
-                    }}>Profile</Link>
-                </li> 
-                </>}
-            
-            
+            <li className="nav-item">
+                <Link className="nav-link" to={{ 
+                    pathname: "/profile/" + props.userId,
+                    state: {
+                        isLoggedIn: props.isLoggedIn,
+                        id: props.userId
+                    }
+                }}>Profile</Link>
+            </li> 
+            </>}
         </ul>
         
         {
